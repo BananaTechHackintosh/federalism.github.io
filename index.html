@@ -1,0 +1,1418 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Freedom. Federalism.</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <!-- Google Font -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap"
+    rel="stylesheet"
+  />
+
+  <!-- Animate.css for ready-made animations -->
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
+  />
+
+  <style>
+    :root {
+      --bg: #050505;
+      --bg-alt: #111111;
+      --accent: #e50914;
+      --accent-soft: rgba(229, 9, 20, 0.15);
+      --text-main: #f5f5f5;
+      --text-muted: #bbbbbb;
+      --border-subtle: rgba(255, 255, 255, 0.08);
+      --shadow-soft: 0 18px 40px rgba(0, 0, 0, 0.85);
+      --radius-lg: 20px;
+      --radius-xl: 28px;
+      --transition-fast: 0.2s ease-out;
+      --transition-med: 0.35s ease-out;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: "Poppins", system-ui, -apple-system, BlinkMacSystemFont,
+        "Segoe UI", sans-serif;
+      background: radial-gradient(circle at top, #1a1a1a 0, #050505 40%, #000 100%);
+      background-size: 200% 200%;
+      animation: bgPulse 18s infinite alternate ease-in-out;
+      color: var(--text-main);
+      line-height: 1.6;
+      scroll-behavior: smooth;
+    }
+
+    @keyframes bgPulse {
+      0% {
+        background-position: 0% 0%;
+      }
+      50% {
+        background-position: 50% 50%;
+      }
+      100% {
+        background-position: 100% 0%;
+      }
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    /* Layout */
+
+    .page {
+      max-width: 1120px;
+      margin: 0 auto;
+      padding: 1.5rem 1.25rem 3rem;
+    }
+
+    @media (min-width: 800px) {
+      .page {
+        padding: 2.5rem 1.5rem 4rem;
+      }
+    }
+
+    /* Top nav */
+
+    .top-nav {
+      position: sticky;
+      top: 0;
+      z-index: 20;
+      backdrop-filter: blur(18px);
+      background: linear-gradient(
+        to bottom,
+        rgba(0, 0, 0, 0.94),
+        rgba(0, 0, 0, 0.7),
+        transparent
+      );
+      padding: 0.75rem 0 0.5rem;
+      margin-bottom: 1.5rem;
+      border-bottom: 1px solid var(--border-subtle);
+    }
+
+    .top-nav-inner {
+      max-width: 1120px;
+      margin: 0 auto;
+      padding: 0 1.25rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+    }
+
+    @media (min-width: 800px) {
+      .top-nav-inner {
+        padding: 0 1.5rem;
+      }
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 0.55rem;
+      font-weight: 700;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      font-size: 0.85rem;
+    }
+
+    .brand-mark {
+      width: 10px;
+      height: 10px;
+      border-radius: 999px;
+      background: radial-gradient(circle at 30% 30%, #ff4b5c, #b3000a);
+      box-shadow: 0 0 16px rgba(229, 9, 20, 0.9);
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 0.75rem;
+      font-size: 0.8rem;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+    }
+
+    .nav-link {
+      position: relative;
+      padding: 0.25rem 0;
+      color: var(--text-muted);
+      cursor: pointer;
+    }
+
+    .nav-link::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      bottom: 0;
+      width: 0;
+      height: 2px;
+      background: linear-gradient(90deg, #ff4b5c, #ff2939, #ff6b6b);
+      transition: width var(--transition-fast);
+    }
+
+    .nav-link:hover {
+      color: #ffffff;
+    }
+
+    .nav-link:hover::after {
+      width: 100%;
+    }
+
+    /* Hero */
+
+    .hero {
+      display: grid;
+      gap: 2.25rem;
+      margin-bottom: 3rem;
+      align-items: center;
+      min-height: 80vh;
+    }
+
+    @media (min-width: 900px) {
+      .hero {
+        grid-template-columns: minmax(0, 3.2fr) minmax(0, 2fr);
+        gap: 3rem;
+      }
+    }
+
+    .hero-text {
+      padding: 1.9rem 1.7rem;
+      border-radius: var(--radius-xl);
+      background: radial-gradient(circle at top left, #242424 5%, #050505 65%);
+      border: 1px solid rgba(229, 9, 20, 0.5);
+      box-shadow: 0 24px 60px rgba(0, 0, 0, 0.95);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero-text::before {
+      content: "";
+      position: absolute;
+      inset: -1px;
+      border-radius: inherit;
+      background: conic-gradient(
+        from 140deg,
+        rgba(229, 9, 20, 0.4),
+        transparent,
+        transparent,
+        rgba(229, 9, 20, 0.7),
+        transparent
+      );
+      opacity: 0.2;
+      mix-blend-mode: screen;
+      pointer-events: none;
+    }
+
+    .hero-eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      font-size: 0.78rem;
+      text-transform: uppercase;
+      letter-spacing: 0.16em;
+      color: var(--accent);
+      margin-bottom: 0.75rem;
+      position: relative;
+      z-index: 1;
+    }
+
+    .hero-eyebrow-dot {
+      width: 20px;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, var(--accent));
+    }
+
+    .hero-tagline {
+      font-size: 1.1rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.14em;
+      color: var(--accent);
+      margin-bottom: 0.5rem;
+      position: relative;
+      z-index: 1;
+    }
+
+    .hero-title {
+      font-size: 2.4rem;
+      line-height: 1.05;
+      margin-bottom: 0.35rem;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      position: relative;
+      z-index: 1;
+    }
+
+    @media (min-width: 800px) {
+      .hero-title {
+        font-size: 3.1rem;
+      }
+
+      .hero-tagline {
+        font-size: 1.2rem;
+      }
+    }
+
+    .hero-subtitle {
+      font-size: 0.98rem;
+      color: var(--text-muted);
+      max-width: 36rem;
+      margin-bottom: 1.25rem;
+      position: relative;
+      z-index: 1;
+    }
+
+    .hero-highlight {
+      display: inline;
+      background: linear-gradient(
+        120deg,
+        rgba(229, 9, 20, 0.5),
+        rgba(229, 9, 20, 0.15)
+      );
+      padding: 0 0.3rem;
+      border-radius: 999px;
+      box-shadow: 0 0 26px rgba(229, 9, 20, 0.7);
+    }
+
+    .hero-meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.75rem;
+      font-size: 0.8rem;
+      color: var(--text-muted);
+      position: relative;
+      z-index: 1;
+    }
+
+    .meta-pill {
+      border-radius: 999px;
+      border: 1px solid var(--border-subtle);
+      padding: 0.3rem 0.75rem;
+      background: rgba(255, 255, 255, 0.02);
+    }
+
+    .hero-stat {
+      color: #ffffff;
+      font-weight: 600;
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.75rem;
+      margin-top: 1.4rem;
+      margin-bottom: 0.3rem;
+      position: relative;
+      z-index: 1;
+    }
+
+    .btn-primary,
+    .btn-ghost {
+      font-size: 0.9rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.18em;
+      padding: 0.7rem 1.8rem;
+      border-radius: 999px;
+      border: 1px solid transparent;
+      cursor: pointer;
+      background: none;
+      color: inherit;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      transition: transform var(--transition-fast),
+        box-shadow var(--transition-fast),
+        border-color var(--transition-fast),
+        background var(--transition-fast),
+        color var(--transition-fast);
+    }
+
+    .btn-primary {
+      background: linear-gradient(135deg, #ff2939, #b3000a);
+      border-color: rgba(229, 9, 20, 0.9);
+      box-shadow: 0 18px 40px rgba(229, 9, 20, 0.7);
+      color: #ffffff;
+    }
+
+    .btn-primary:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 22px 55px rgba(229, 9, 20, 0.9);
+    }
+
+    .btn-ghost {
+      border-color: rgba(255, 255, 255, 0.24);
+      background: rgba(0, 0, 0, 0.6);
+      color: var(--text-muted);
+    }
+
+    .btn-ghost:hover {
+      border-color: rgba(229, 9, 20, 0.7);
+      background: rgba(229, 9, 20, 0.1);
+      color: #ffffff;
+    }
+
+    .btn-icon {
+      font-size: 1.1rem;
+      display: inline-block;
+      transform: translateY(1px);
+    }
+
+    .hero-graphic {
+      position: relative;
+      padding: 1.8rem 1.5rem;
+      border-radius: var(--radius-xl);
+      background: radial-gradient(circle at 20% 0, #333333 0, #050505 60%);
+      border: 1px solid rgba(229, 9, 20, 0.4);
+      box-shadow: 0 26px 70px rgba(0, 0, 0, 0.95);
+      overflow: hidden;
+    }
+
+    .hero-badge {
+      position: absolute;
+      top: 1.1rem;
+      right: 1.25rem;
+      font-size: 0.7rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      padding: 0.25rem 0.7rem;
+      border-radius: 999px;
+      background: rgba(0, 0, 0, 0.6);
+      border: 1px solid rgba(255, 255, 255, 0.06);
+      color: var(--accent);
+    }
+
+    .hero-orbit {
+      position: relative;
+      width: 100%;
+      aspect-ratio: 1 / 1;
+      border-radius: 999px;
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      margin: 0 auto;
+      display: grid;
+      place-items: center;
+      overflow: visible;
+    }
+
+    .hero-orbit::before {
+      content: "";
+      position: absolute;
+      width: 70%;
+      height: 70%;
+      border-radius: inherit;
+      border: 1px dashed rgba(255, 255, 255, 0.08);
+    }
+
+    .hero-orbit-core {
+      width: 34%;
+      aspect-ratio: 1 / 1;
+      border-radius: 999px;
+      background: radial-gradient(circle at 25% 25%, #ff6b6b, #b3000a);
+      box-shadow: 0 0 40px rgba(229, 9, 20, 0.9);
+      display: grid;
+      place-items: center;
+      font-size: 0.78rem;
+      font-weight: 600;
+      text-align: center;
+      padding: 0.5rem;
+    }
+
+    .hero-orbit-node {
+      position: absolute;
+      width: 26%;
+      aspect-ratio: 1 / 1;
+      border-radius: 20px;
+      background: rgba(0, 0, 0, 0.9);
+      border: 1px solid var(--border-subtle);
+      padding: 0.55rem;
+      font-size: 0.7rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      gap: 0.35rem;
+    }
+
+    .hero-orbit-node span {
+      font-size: 0.7rem;
+      color: var(--text-muted);
+    }
+
+    .hero-orbit-node strong {
+      font-size: 0.78rem;
+    }
+
+    .hero-orbit-node.dot {
+      width: 10px;
+      height: 10px;
+      border-radius: 999px;
+      background: var(--accent);
+      box-shadow: 0 0 16px rgba(229, 9, 20, 0.9);
+    }
+
+    .hero-orbit-node.node-top {
+      top: -5%;
+      left: 50%;
+      transform: translateX(-50%);
+    }
+
+    .hero-orbit-node.node-right {
+      right: -5%;
+      top: 50%;
+      transform: translateY(-50%);
+    }
+
+    .hero-orbit-node.node-bottom {
+      bottom: -5%;
+      left: 50%;
+      transform: translateX(-50%);
+    }
+
+    .hero-orbit-node.node-left {
+      left: -5%;
+      top: 50%;
+      transform: translateY(-50%);
+    }
+
+    .hero-orbit-blur {
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(circle at 30% 0, transparent 0, transparent 40%, rgba(0, 0, 0, 0.8) 100%);
+      pointer-events: none;
+    }
+
+    /* Sections */
+
+    section {
+      margin-bottom: 2.75rem;
+    }
+
+    .section-label {
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 0.18em;
+      color: var(--accent);
+      margin-bottom: 0.5rem;
+    }
+
+    .section-title {
+      font-size: 1.35rem;
+      margin-bottom: 0.5rem;
+    }
+
+    .section-kicker {
+      font-size: 0.95rem;
+      color: var(--text-muted);
+      margin-bottom: 1.25rem;
+      max-width: 40rem;
+    }
+
+    .section-grid {
+      display: grid;
+      gap: 1.4rem;
+    }
+
+    @media (min-width: 800px) {
+      .section-grid.two-col {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+    }
+
+    .card {
+      background: linear-gradient(
+        145deg,
+        rgba(255, 255, 255, 0.02),
+        rgba(255, 255, 255, 0.01)
+      );
+      border-radius: var(--radius-lg);
+      border: 1px solid var(--border-subtle);
+      padding: 1rem 1rem;
+      box-shadow: var(--shadow-soft);
+      position: relative;
+      overflow: hidden;
+      opacity: 0;
+      transform: translateY(18px);
+      transition: opacity var(--transition-med), transform var(--transition-med),
+        box-shadow var(--transition-fast), border-color var(--transition-fast),
+        background var(--transition-fast);
+    }
+
+    .card::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(
+        135deg,
+        transparent,
+        transparent,
+        rgba(229, 9, 20, 0.08)
+      );
+      opacity: 0;
+      transition: opacity var(--transition-med);
+      pointer-events: none;
+    }
+
+    .card.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .card:hover {
+      box-shadow: 0 22px 50px rgba(0, 0, 0, 0.9);
+      border-color: rgba(229, 9, 20, 0.4);
+      background: linear-gradient(
+        145deg,
+        rgba(255, 255, 255, 0.03),
+        rgba(229, 9, 20, 0.08)
+      );
+    }
+
+    .card:hover::before {
+      opacity: 1;
+    }
+
+    .card-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 0.6rem;
+    }
+
+    .card-title {
+      font-size: 0.92rem;
+      font-weight: 600;
+    }
+
+    .card-tag {
+      font-size: 0.7rem;
+      text-transform: uppercase;
+      letter-spacing: 0.16em;
+      padding: 0.12rem 0.55rem;
+      border-radius: 999px;
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      background: rgba(0, 0, 0, 0.6);
+      color: var(--text-muted);
+      white-space: nowrap;
+    }
+
+    .card-body {
+      font-size: 0.9rem;
+      color: var(--text-muted);
+    }
+
+    .card-body strong {
+      color: #ffffff;
+      font-weight: 600;
+    }
+
+    .key-list {
+      margin-top: 0.45rem;
+      padding-left: 1.1rem;
+      font-size: 0.88rem;
+    }
+
+    .key-list li {
+      margin-bottom: 0.25rem;
+    }
+
+    .pill-row {
+      margin-top: 0.6rem;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.4rem;
+    }
+
+    .pill {
+      font-size: 0.72rem;
+      padding: 0.1rem 0.6rem;
+      border-radius: 999px;
+      border: 1px solid rgba(255, 255, 255, 0.16);
+      background: rgba(0, 0, 0, 0.7);
+      color: var(--text-muted);
+    }
+
+    .pill.accent {
+      border-color: rgba(229, 9, 20, 0.7);
+      background: var(--accent-soft);
+      color: #ffdadf;
+    }
+
+    /* Timeline */
+
+    .timeline {
+      position: relative;
+      padding-left: 1.25rem;
+    }
+
+    .timeline::before {
+      content: "";
+      position: absolute;
+      left: 0.4rem;
+      top: 0.2rem;
+      bottom: 0.2rem;
+      width: 2px;
+      background: linear-gradient(
+        to bottom,
+        rgba(229, 9, 20, 0.7),
+        transparent
+      );
+    }
+
+    .timeline-item {
+      position: relative;
+      padding-left: 1rem;
+      margin-bottom: 0.9rem;
+      font-size: 0.9rem;
+      color: var(--text-muted);
+    }
+
+    .timeline-item:last-child {
+      margin-bottom: 0;
+    }
+
+    .timeline-dot {
+      position: absolute;
+      left: -0.06rem;
+      top: 0.15rem;
+      width: 9px;
+      height: 9px;
+      border-radius: 999px;
+      background: radial-gradient(circle at 30% 30%, #ff6b6b, #b3000a);
+      box-shadow: 0 0 12px rgba(229, 9, 20, 0.9);
+    }
+
+    .timeline-item span {
+      display: block;
+    }
+
+    .timeline-label {
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 0.18em;
+      color: var(--accent);
+      margin-bottom: 0.15rem;
+    }
+
+    .timeline-heading {
+      font-size: 0.92rem;
+      color: #ffffff;
+      margin-bottom: 0.1rem;
+    }
+
+    /* Two-column bullets */
+
+    .bullet-grid {
+      display: grid;
+      gap: 1rem;
+    }
+
+    @media (min-width: 700px) {
+      .bullet-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+    }
+
+    .bullet-title {
+      font-size: 0.85rem;
+      text-transform: uppercase;
+      letter-spacing: 0.15em;
+      color: var(--accent);
+      margin-bottom: 0.2rem;
+    }
+
+    .bullet-list {
+      padding-left: 1.1rem;
+      font-size: 0.9rem;
+      color: var(--text-muted);
+    }
+
+    .bullet-list li {
+      margin-bottom: 0.25rem;
+    }
+
+    /* Footer */
+
+    .footer {
+      margin-top: 2rem;
+      padding-top: 1.5rem;
+      border-top: 1px solid var(--border-subtle);
+      font-size: 0.75rem;
+      color: var(--text-muted);
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      gap: 0.75rem;
+    }
+
+    .footer span strong {
+      color: #ffffff;
+    }
+
+    /* Utility */
+
+    .muted {
+      color: var(--text-muted);
+    }
+  </style>
+</head>
+
+<body>
+  <header class="top-nav">
+    <div class="top-nav-inner">
+      <div class="brand">
+        <span class="brand-mark"></span>
+        <span>Freedom. Federalism.</span>
+      </div>
+      <nav class="nav-links">
+        <a href="#structure" class="nav-link">Structure</a>
+        <a href="#history" class="nav-link">History</a>
+        <a href="#power" class="nav-link">Power</a>
+        <a href="#citizens" class="nav-link">Citizens</a>
+        <a href="#economy" class="nav-link">Economy</a>
+        <a href="#values" class="nav-link">Values</a>
+        <a href="#today" class="nav-link">Today</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="page">
+    <!-- Hero -->
+    <section class="hero animate__animated animate__fadeIn">
+      <div class="hero-text">
+        <div class="hero-eyebrow">
+          <span class="hero-eyebrow-dot"></span>
+          <span>Government Systems · Federalism</span>
+        </div>
+
+        <div class="hero-tagline">
+          Freedom. Federalism. Shared Power.
+        </div>
+
+        <h1 class="hero-title">
+          A system built to
+          <span class="hero-highlight">limit power</span>
+          and
+          <span class="hero-highlight">protect liberty.</span>
+        </h1>
+
+        <p class="hero-subtitle">
+          Federalism divides authority between national and state governments so
+          no single level can rule alone. It protects
+          <strong>rights</strong>, pushes leaders to
+          <strong>listen to citizens</strong>, and lets communities shape policies
+          that fit their people—while still staying one nation.
+        </p>
+
+        <div class="hero-actions">
+          <a href="#structure" class="btn-primary">
+            Explore the System
+            <span class="btn-icon">➜</span>
+          </a>
+          <a href="#today" class="btn-ghost">
+            Federalism Today
+            <span class="btn-icon">◎</span>
+          </a>
+        </div>
+
+        <div class="hero-meta">
+          <div class="meta-pill">
+            <span class="hero-stat">2+</span> levels of government
+          </div>
+          <div class="meta-pill">
+            <span class="hero-stat">3</span> branches: legislative, executive, judicial
+          </div>
+          <div class="meta-pill">
+            Built on voting, rights, and the rule of law
+          </div>
+        </div>
+      </div>
+
+      <aside class="hero-graphic animate__animated animate__fadeInRight">
+        <div class="hero-badge">Power Shared</div>
+        <div class="hero-orbit">
+          <div class="hero-orbit-core">
+            <div>Federalism</div>
+            <div style="font-size: 0.65rem; font-weight: 400; margin-top: 0.1rem">
+              One nation, many governments
+            </div>
+          </div>
+
+          <div class="hero-orbit-node node-top">
+            <span>NATIONAL</span>
+            <strong>Federal Government</strong>
+            <span>Big national issues</span>
+          </div>
+
+          <div class="hero-orbit-node node-right">
+            <span>STATE</span>
+            <strong>State Governments</strong>
+            <span>Schools · Roads · Elections · Local laws</span>
+          </div>
+
+          <div class="hero-orbit-node node-bottom">
+            <span>PEOPLE</span>
+            <strong>Citizens</strong>
+            <span>Hold leaders accountable</span>
+          </div>
+
+          <div class="hero-orbit-node node-left">
+            <span>BRANCHES</span>
+            <strong>Checks &amp; Balances</strong>
+            <span>Legislative · Executive · Judicial</span>
+          </div>
+
+          <div class="hero-orbit-blur"></div>
+        </div>
+      </aside>
+    </section>
+
+    <!-- Basic Structure -->
+    <section id="structure">
+      <p class="section-label">Basic Structure &amp; Definition</p>
+      <h2 class="section-title">What kind of government is federalism?</h2>
+      <p class="section-kicker">
+        Federalism is a <strong>system of government</strong> where power is
+        divided and shared between a
+        <strong>central (national) government</strong> and
+        <strong>regional (state or provincial) governments</strong>. Both levels
+        have real power. Neither is just a “branch office” of the other.
+      </p>
+
+      <div class="section-grid two-col">
+        <article class="card">
+          <div class="card-header">
+            <h3 class="card-title">Type of government</h3>
+            <span class="card-tag">System</span>
+          </div>
+          <div class="card-body">
+            In a federal system like the United States, the overall government is
+            usually a <strong>constitutional democracy</strong>. People choose
+            leaders at multiple levels:
+            <ul class="key-list">
+              <li>National government (for example, President, Congress)</li>
+              <li>State governments (governors, state legislatures)</li>
+              <li>Local governments (mayors, councils, school boards)</li>
+            </ul>
+            The written constitution sets the rules and
+            <strong>limits all of them</strong>.
+          </div>
+        </article>
+
+        <article class="card">
+          <div class="card-header">
+            <h3 class="card-title">Who makes the laws?</h3>
+            <span class="card-tag">Law-making</span>
+          </div>
+          <div class="card-body">
+            Laws come from both the
+            <strong>national legislature</strong> and the
+            <strong>state legislatures</strong>, and are ultimately based on the
+            will of the people:
+            <ul class="key-list">
+              <li>Citizens vote to choose lawmakers and executives.</li>
+              <li>National and state governments pass laws within their powers.</li>
+              <li>Courts review laws to make sure they follow the Constitution.</li>
+            </ul>
+            The result: <strong>shared power</strong> instead of a single ruler.
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- Historical Development -->
+    <section id="history">
+      <p class="section-label">Historical Development</p>
+      <h2 class="section-title">How federalism took shape in the United States</h2>
+      <p class="section-kicker">
+        American federalism grew out of conflict and experimentation. The goal:
+        create a government <strong>strong enough to protect freedom</strong> but
+        <strong>limited enough not to destroy it</strong>.
+      </p>
+
+      <div class="section-grid">
+        <article class="card">
+          <div class="card-header">
+            <h3 class="card-title">Key phases of American federalism</h3>
+            <span class="card-tag">Timeline</span>
+          </div>
+          <div class="card-body">
+            <div class="timeline">
+              <div class="timeline-item">
+                <div class="timeline-dot"></div>
+                <span class="timeline-label">Colonial era</span>
+                <span class="timeline-heading">Early hints of shared power</span>
+                <span>
+                  British colonies had their own assemblies and governors, giving
+                  Americans early experience with divided government authority.
+                </span>
+              </div>
+
+              <div class="timeline-item">
+                <div class="timeline-dot"></div>
+                <span class="timeline-label">1776–1781</span>
+                <span class="timeline-heading">Revolution &amp; Articles of Confederation</span>
+                <span>
+                  After the American Revolution, the new states created the
+                  <strong>Articles of Confederation</strong>, a loose union with a
+                  very weak national government—too weak to solve major problems.
+                </span>
+              </div>
+
+              <div class="timeline-item">
+                <div class="timeline-dot"></div>
+                <span class="timeline-label">1787–1789</span>
+                <span class="timeline-heading">Constitutional Convention</span>
+                <span>
+                  James Madison and other leaders designed a new Constitution that
+                  created a <strong>stronger federal government</strong> while still
+                  protecting state powers—this is the full birth of U.S. federalism.
+                </span>
+              </div>
+
+              <div class="timeline-item">
+                <div class="timeline-dot"></div>
+                <span class="timeline-label">Civil War era</span>
+                <span class="timeline-heading">Union &amp; federal supremacy</span>
+                <span>
+                  The Civil War proved that the United States is
+                  <strong>one nation</strong>, not just a group of states.
+                  Afterwards, the national government gained more power to protect
+                  rights, especially against slavery.
+                </span>
+              </div>
+
+              <div class="timeline-item">
+                <div class="timeline-dot"></div>
+                <span class="timeline-label">20th century</span>
+                <span class="timeline-heading">Dual, cooperative, and new federalism</span>
+                <span>
+                  U.S. federalism evolved from
+                  <strong>dual federalism</strong> (clear separation of state and
+                  national powers) to
+                  <strong>cooperative federalism</strong> under Franklin D. Roosevelt
+                  and the New Deal, where both levels worked together on big issues
+                  like the Great Depression.
+                  In the 1970s, presidents like Richard Nixon encouraged
+                  <strong>“new federalism”</strong>, shifting some power and
+                  flexibility back to the states.
+                </span>
+              </div>
+            </div>
+          </div>
+        </article>
+
+        <article class="card">
+          <div class="card-header">
+            <h3 class="card-title">Influential leaders &amp; ideas</h3>
+            <span class="card-tag">Thinkers</span>
+          </div>
+          <div class="card-body">
+            <p>
+              Several leaders shaped how federalism works in the United States:
+            </p>
+            <ul class="key-list">
+              <li>
+                <strong>James Madison</strong> – One of the main authors of the
+                Constitution and the Federalist Papers. He argued for dividing power
+                so no single level or branch could dominate.
+              </li>
+              <li>
+                <strong>Franklin D. Roosevelt</strong> – Led the New Deal, which
+                used federal programs and funding to fight the Great Depression,
+                expanding <em>cooperative</em> federalism.
+              </li>
+              <li>
+                <strong>Richard Nixon</strong> – Promoted “new federalism,” giving
+                states more control and flexibility over how to use federal funds.
+              </li>
+            </ul>
+            <div class="pill-row">
+              <span class="pill accent">Limited government</span>
+              <span class="pill">Checks &amp; balances</span>
+              <span class="pill">Shared sovereignty</span>
+              <span class="pill">Protection of rights</span>
+            </div>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- Distribution and Use of Power -->
+    <section id="power">
+      <p class="section-label">Distribution &amp; Use of Power</p>
+      <h2 class="section-title">Who holds power in a federal system?</h2>
+      <p class="section-kicker">
+        Instead of power piling up in one place, federalism spreads it across
+        <strong>levels of government</strong> and
+        <strong>branches of government</strong>, all ultimately accountable to
+        the people.
+      </p>
+
+      <div class="section-grid two-col">
+        <article class="card">
+          <div class="card-header">
+            <h3 class="card-title">Levels of power</h3>
+            <span class="card-tag">Shared authority</span>
+          </div>
+          <div class="card-body">
+            Power is divided among:
+            <ul class="key-list">
+              <li>
+                <strong>National (federal) government</strong> – Handles issues
+                that affect the whole country: defense, currency, immigration,
+                foreign policy, and national economic policy.
+              </li>
+              <li>
+                <strong>State governments</strong> – Manage education, local
+                transportation, public safety, elections, and many social policies.
+              </li>
+              <li>
+                <strong>Local governments</strong> – Cities, counties, and towns
+                handle community needs: police, fire protection, zoning, local
+                roads, and parks.
+              </li>
+            </ul>
+            <p style="margin-top: 0.4rem">
+              Each level has its own responsibilities, but they also cooperate and
+              sometimes even argue—this tension is part of how federalism protects
+              freedom.
+            </p>
+          </div>
+        </article>
+
+        <article class="card">
+          <div class="card-header">
+            <h3 class="card-title">Checks, balances, and elections</h3>
+            <span class="card-tag">Prevention of abuse</span>
+          </div>
+          <div class="card-body">
+            Federalism works together with the
+            <strong>three-branch system</strong>:
+            <ul class="key-list">
+              <li>
+                <strong>Legislative</strong> – Makes laws (Congress, state
+                legislatures).
+              </li>
+              <li>
+                <strong>Executive</strong> – Enforces laws (President, governors,
+                mayors).
+              </li>
+              <li>
+                <strong>Judicial</strong> – Interprets laws and can strike down
+                unconstitutional ones (courts).
+              </li>
+            </ul>
+            <p style="margin-top: 0.4rem">
+              Leaders are chosen by <strong>elections</strong> or, in some systems,
+              by appointment. Courts, legislatures, and the people themselves all
+              check each other’s power, making it harder for anyone to become a
+              dictator.
+            </p>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- Citizens and Participation -->
+    <section id="citizens">
+      <p class="section-label">Citizens &amp; Participation</p>
+      <h2 class="section-title">How do people take part in a federal system?</h2>
+      <p class="section-kicker">
+        In a federal democracy, government is not something done <em>to</em> the
+        people—it is something done <em>by</em> the people, at many levels.
+      </p>
+
+      <div class="section-grid two-col">
+        <article class="card">
+          <div class="card-header">
+            <h3 class="card-title">Rights and responsibilities</h3>
+            <span class="card-tag">Freedom</span>
+          </div>
+          <div class="card-body">
+            Citizens in a federal democracy typically enjoy:
+            <ul class="key-list">
+              <li>
+                <strong>Voting rights</strong> – Choosing leaders at national,
+                state, and local levels.
+              </li>
+              <li>
+                <strong>Freedom of speech</strong> – Criticizing leaders and
+                policies without fear of punishment.
+              </li>
+              <li>
+                <strong>Freedom of religion</strong> – Government cannot force a
+                single religion or ban peaceful beliefs.
+              </li>
+              <li>
+                <strong>Equality under the law</strong> – Protection against
+                discrimination based on race, religion, or other unfair reasons.
+              </li>
+            </ul>
+            <p style="margin-top: 0.4rem">
+              With these rights comes responsibility: staying informed, obeying
+              just laws, serving on juries, and participating in community life.
+            </p>
+          </div>
+        </article>
+
+        <article class="card">
+          <div class="card-header">
+            <h3 class="card-title">Ways to be heard</h3>
+            <span class="card-tag">Participation</span>
+          </div>
+          <div class="card-body">
+            People influence government in multiple ways:
+            <ul class="key-list">
+              <li>Voting in elections at every level.</li>
+              <li>Contacting representatives and attending public meetings.</li>
+              <li>Joining parties, interest groups, or community organizations.</li>
+              <li>Peaceful protest, petition, and social media advocacy.</li>
+            </ul>
+            <p style="margin-top: 0.4rem">
+              Because decisions are made at many levels, it is often easier for
+              citizens to get involved <strong>close to home</strong> and see
+              results quickly.
+            </p>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- Economy and Social Services -->
+    <section id="economy">
+      <p class="section-label">Economy &amp; Social Services</p>
+      <h2 class="section-title">How does a federal system handle money and services?</h2>
+      <p class="section-kicker">
+        Federalism lets different levels of government share the cost and work of
+        running a modern society—schools, roads, health care, and more.
+      </p>
+
+      <div class="section-grid two-col">
+        <article class="card">
+          <div class="card-header">
+            <h3 class="card-title">Taxes and budgets</h3>
+            <span class="card-tag">Public money</span>
+          </div>
+          <div class="card-body">
+            In many federal systems, including the United States:
+            <ul class="key-list">
+              <li>
+                The <strong>federal government</strong> collects income and excise
+                taxes to fund national defense, social security, major health
+                programs, and other nationwide priorities.
+              </li>
+              <li>
+                <strong>States and local governments</strong> collect sales, income,
+                and property taxes to fund schools, police and fire departments,
+                local roads, and community services.
+              </li>
+              <li>
+                The federal government often provides
+                <strong>grants</strong> to states to support education, health care,
+                and infrastructure, sometimes with rules attached.
+              </li>
+            </ul>
+          </div>
+        </article>
+
+        <article class="card">
+          <div class="card-header">
+            <h3 class="card-title">Services that affect everyday life</h3>
+            <span class="card-tag">Public services</span>
+          </div>
+          <div class="card-body">
+            Federalism helps match services to the level where they work best:
+            <div class="bullet-grid" style="margin-top: 0.5rem">
+              <div>
+                <div class="bullet-title">Mostly national</div>
+                <ul class="bullet-list">
+                  <li>National defense</li>
+                  <li>Major highways and transportation networks</li>
+                  <li>National health programs (like Medicare/Medicaid in the U.S.)</li>
+                  <li>Nationwide economic and environmental rules</li>
+                </ul>
+              </div>
+              <div>
+                <div class="bullet-title">Mostly state/local</div>
+                <ul class="bullet-list">
+                  <li>K–12 schools and local colleges</li>
+                  <li>Local roads, public transit, and zoning</li>
+                  <li>Police, fire, and emergency services</li>
+                  <li>Local welfare and housing programs</li>
+                </ul>
+              </div>
+            </div>
+            <p style="margin-top: 0.5rem">
+              By dividing responsibilities, federalism allows policies to be
+              <strong>tailored to local needs</strong> while still meeting national
+              standards.
+            </p>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- Cultural and Religious Foundations -->
+    <section id="values">
+      <p class="section-label">Cultural &amp; Religious Foundations</p>
+      <h2 class="section-title">What values shape a federal system?</h2>
+      <p class="section-kicker">
+        Federalism does not require one religion or culture. Instead, it depends
+        on shared <strong>political values</strong> and a commitment to live
+        together under common rules.
+      </p>
+
+      <div class="section-grid">
+        <article class="card">
+          <div class="card-header">
+            <h3 class="card-title">Core ideas</h3>
+            <span class="card-tag">Principles</span>
+          </div>
+          <div class="card-body">
+            Some of the key values behind modern federalism include:
+            <ul class="key-list">
+              <li>
+                <strong>Freedom</strong> – Especially freedoms of speech, religion,
+                press, and assembly.
+              </li>
+              <li>
+                <strong>Equality</strong> – All people deserve equal protection and
+                fair treatment under the law.
+              </li>
+              <li>
+                <strong>Pluralism</strong> – Different states and communities can
+                have different policies while still being part of one country.
+              </li>
+              <li>
+                <strong>Rule of law</strong> – Leaders must obey the same laws as
+                everyone else, and those laws come from a higher constitution.
+              </li>
+            </ul>
+            <p style="margin-top: 0.5rem">
+              Religion and tradition may shape people’s beliefs, but in a federal
+              democracy the government itself is
+              <strong>not supposed to favor one faith</strong>. Instead, it protects
+              the freedom of all.
+            </p>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- Modern Implementation -->
+    <section id="today">
+      <p class="section-label">Modern Implementation &amp; Challenges</p>
+      <h2 class="section-title">Is federalism working today?</h2>
+      <p class="section-kicker">
+        Federalism remains a powerful way to balance
+        <strong>unity and diversity</strong>, but it is not perfect. Its strengths
+        and weaknesses show up in real debates over rights, safety, and freedom.
+      </p>
+
+      <div class="section-grid two-col">
+        <article class="card">
+          <div class="card-header">
+            <h3 class="card-title">Strengths of federalism</h3>
+            <span class="card-tag">Benefits</span>
+          </div>
+          <div class="card-body">
+            <ul class="key-list">
+              <li>
+                <strong>Protects liberty</strong> by preventing any one level of
+                government from gaining total control.
+              </li>
+              <li>
+                <strong>Encourages participation</strong> by giving citizens many
+                different elections and governments to influence.
+              </li>
+              <li>
+                <strong>Allows experimentation</strong>: states can try different
+                solutions and learn from each other’s successes and mistakes.
+              </li>
+              <li>
+                <strong>Fits a large, diverse country</strong> where people and
+                regions may want different policies while still staying united.
+              </li>
+            </ul>
+          </div>
+        </article>
+
+        <article class="card">
+          <div class="card-header">
+            <h3 class="card-title">Ongoing challenges</h3>
+            <span class="card-tag">Tensions</span>
+          </div>
+          <div class="card-body">
+            Federalism also raises hard questions:
+            <ul class="key-list">
+              <li>
+                How much freedom should states have when their laws affect national
+                rights or equality?
+              </li>
+              <li>
+                What happens when state and federal laws <strong>conflict</strong>?
+              </li>
+              <li>
+                How do we prevent “too much” freedom from turning into chaos or
+                unfair treatment?
+              </li>
+              <li>
+                How can we keep government responsive to people while still solving
+                big national problems?
+              </li>
+            </ul>
+            <p style="margin-top: 0.5rem">
+              These debates are not a sign that federalism is failing—they are a
+              sign that the system is
+              <strong>actively balancing power and freedom</strong>.
+            </p>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+      <span>
+        <strong>Freedom. Federalism.</strong>
+        &nbsp;· A snapshot of how shared power can protect rights and democracy.
+      </span>
+      <span class="muted">
+        Built as a learning page on federalism and modern government systems.
+      </span>
+    </footer>
+  </main>
+
+  <script>
+    // Simple scroll animation: reveal cards as they enter the viewport
+    const cards = document.querySelectorAll(".card");
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("visible");
+            observer.unobserve(entry.target);
+          }
+        });
+      },
+      {
+        threshold: 0.15,
+      }
+    );
+
+    cards.forEach((card) => observer.observe(card));
+  </script>
+</body>
+</html>
